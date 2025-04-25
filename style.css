@@ -1,0 +1,68 @@
+
+body {
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+  background: url('https://i.imgur.com/SC8uZX2.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #111;
+}
+header {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .logo {
+  height: 50px;
+}
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+.hero {
+  padding: 120px 20px;
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+}
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 50px 20px;
+  background: white;
+}
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+}
+.product-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+.btn {
+  display: inline-block;
+  background: #000;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+.about, .contact {
+  background: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+footer {
+  background: #000;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}

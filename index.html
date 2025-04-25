@@ -1,63 +1,100 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lemongrass Island</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <img src="https://imgur.com/AxQrnUV.png" alt="Lemongrass Logo" class="logo" />
+    <div class="logo">Lemongrass Island</div>
     <nav>
       <a href="#shop">Shop</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
+      <a href="#cart" class="cart-btn">Cart (<span id="cart-count">0</span>)</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Luxury Streetwear</h1>
-      <p>Island-inspired. Culture-driven. Exclusively yours.</p>
+  <div class="hero">
+    <h1>Modern Streetwear Meets Island Luxury</h1>
+    <p>Crafted for culture. Inspired by nature. Made to stand out.</p>
+  </div>
+
+  <section id="shop">
+    <h2>Our Products</h2>
+    <div class="products">
+      <div class="product">
+        <div class="slider">
+          <img src="https://i.imgur.com/l4lGJDi.png" class="slide active" />
+          <img src="https://i.imgur.com/kwHD7cU.png" class="slide" />
+          <button class="prev">‹</button>
+          <button class="next">›</button>
+        </div>
+        <h3>Classic T-Shirt</h3>
+        <p>Premium heavyweight cotton. Bold design.</p>
+        <p class="price">RM89</p>
+        <label for="size-tshirt">Size:</label>
+        <select id="size-tshirt">
+          <option>S (5)</option>
+          <option>M (5)</option>
+          <option>L (5)</option>
+          <option>XL (5)</option>
+        </select>
+        <a href="https://toyyibpay.com/link-bayaran-tshirt" class="btn">Pre-Order Now</a>
+      </div>
+
+      <div class="product">
+        <img src="https://i.imgur.com/kwHD7cU.png" />
+        <h3>Signature Hoodie</h3>
+        <p>Luxury fleece. Embroidered logo. Ultimate comfort.</p>
+        <p class="price">RM179</p>
+        <label for="size-hoodie">Size:</label>
+        <select id="size-hoodie">
+          <option>S (2)</option>
+          <option>M (3)</option>
+          <option>L (3)</option>
+          <option>XL (2)</option>
+        </select>
+        <a href="https://toyyibpay.com/link-bayaran-hoodie" class="btn">Pre-Order Now</a>
+      </div>
     </div>
   </section>
 
-  <section class="products" id="shop">
-    <div class="product-card" id="tshirt">
-      <img src="https://imgur.com/S1KzW0B.png" alt="T-Shirt">
-      <h3>Classic T-Shirt</h3>
-      <p>Premium heavyweight cotton. Bold design.</p>
-      <p class="price">RM89</p>
-      <p class="stock">Stock: <span id="tshirt-stock">20</span></p>
-      <a href="https://toyyibpay.com/link-bayaran-tshirt" target="_blank" class="btn">Pre-Order</a>
-    </div>
-    <div class="product-card" id="hoodie">
-      <img src="https://imgur.com/8AYoYZd.png" alt="Hoodie">
-      <h3>Signature Hoodie</h3>
-      <p>Luxury fleece. Embroidered logo. Ultimate comfort.</p>
-      <p class="price">RM179</p>
-      <p class="stock">Stock: <span id="hoodie-stock">10</span></p>
-      <a href="https://toyyibpay.com/link-bayaran-hoodie" target="_blank" class="btn">Pre-Order</a>
-    </div>
-  </section>
-
-  <section class="about" id="about">
+  <section id="about">
     <h2>About Us</h2>
-    <p>Lemongrass Island blends streetwear with island heritage and luxurious comfort. Made to express identity and story.</p>
+    <p>Lemongrass Island is a luxury streetwear brand rooted in identity, inspired by tropical aesthetics and the voice of today’s youth. Designed to stand out.</p>
   </section>
 
-  <section class="contact" id="contact">
+  <section id="contact">
     <h2>Contact</h2>
     <p>Instagram: <a href="https://instagram.com/lemongrassisland_official" target="_blank">@lemongrassisland_official</a></p>
-    <p>Email: official.lemongrassisland@gmail.com</p>
-    <p>WhatsApp: <a href="https://wa.me/60137007539" target="_blank">+60 13-700 7539</a></p>
+    <p>Email: officiallemongrassisland@gmail.com</p>
+    <p>WhatsApp: <a href="https://wa.me/60137007539" target="_blank">+6013 700 7539</a></p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Lemongrass Island</p>
+    <p>&copy; 2025 Lemongrass Island. All rights reserved.</p>
   </footer>
+
+  <script>
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    next.addEventListener('click', () => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    });
+
+    prev.addEventListener('click', () => {
+      slides[current].classList.remove('active');
+      current = (current - 1 + slides.length) % slides.length;
+      slides[current].classList.add('active');
+    });
+  </script>
 </body>
 </html>

@@ -1,57 +1,73 @@
-// Product stock
-const products = {
-  1: { name: "Classic T-Shirt", stock: 20, price: 89 },
-  2: { name: "Signature Hoodie", stock: 10, price: 179 }
-};
+// JavaScript for cart functionality
+const cart = [];
 
-const cartItems = [];
-
-document.querySelectorAll('.add-to-cart').forEach(button => {
-  button.addEventListener('click', function() {
-    const card = this.closest('.product-card');
-    const id = card.getAttribute('data-id');
-    const size = card.querySelector('.size').value;
-    if (products[id].stock > 0) {
-      cartItems.push({ id, size });
-      products[id].stock--;
-      card.querySelector('.stock').innerText = products[id].stock;
-      document.getElementById('cart-count').innerText = cartItems.length;
-      alert('Added to cart!');
-    } else {
-      alert('Sold out!');
-    }
-  });
-});
-
-document.querySelector('.cart-btn').addEventListener('click', () => {
-  document.getElementById('cart').classList.remove('hidden');
-  updateCart();
-});
-
-document.getElementById('close-cart').addEventListener('click', () => {
-  document.getElementById('cart').classList.add('hidden');
-});
-
-function updateCart() {
-  const cartList = document.getElementById('cart-items');
-  cartList.innerHTML = '';
-  cartItems.forEach(item => {
-    const li = document.createElement('li');
-    li.textContent = `${products[item.id].name} - Size ${item.size}`;
-    cartList.appendChild(li);
-  });
+// Kemaskini bilangan item di header
+function updateCartCount() {
+    const countSpan = document.getElementById('cart-count');
+    countSpan.textContent = cart.length;
 }
 
-document.getElementById('checkout').addEventListener('click', () => {
-  window.location.href = 'https://toyyibpay.com/your-payment-link'; // Ganti dengan link anda
-});
+// Buka overlay keranjang
+function openCart() {
+    document.getElementById('cart-overlay').classList.remove('hidden');
+    renderCartItems();
+}
 
-// Image slider hover
-document.querySelectorAll('.product-slider').forEach(slider => {
-  slider.addEventListener('mouseover', () => {
-    slider.children[1].classList.remove('hidden');
-  });
-  slider.addEventListener('mouseout', () => {
-    slider.children[1].classList.add('hidden');
-  });
+// Tutup overlay keranjang
+function closeCart() {
+    document.getElementById('cart-overlay').classList.add('hidden');
+}
+
+// Tambah item ke keranjang
+function addToCart(name, price) {
+    cart.push({ name, price });
+    updateCartCount();
+}
+
+// Papar item dalam overlay
+function renderCartItems() {
+    const cartItemsDiv = document.getElementById('cart-items');
+    cartItemsDiv.innerHTML = ''; // Kosongkan dahulu
+    let total = 0;
+    cart.forEach(item => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'cart-item';
+        itemDiv.textContent = `${item.name} - RM${item.price}`;
+        cartItemsDiv.appendChild(itemDiv);
+        total += parseFloat(item.price);
+    });
+    // Papar jumlah jika ada item
+    if (cart.length > 0) {
+        const totalDiv = document.createElement('div');
+        totalDiv.className = 'cart-total';
+        totalDiv.textContent = `Total: RM${total.toFixed(2)}`;
+        cartItemsDiv.appendChild(totalDiv);
+    } else {
+        cartItemsDiv.textContent = 'Your cart is empty.';
+    }
+}
+
+// Tetapan event selepas DOM sedia
+document.addEventListener('DOMContentLoaded', () => {
+    // Pada setiap butang "Add to Cart"
+    const addButtons = document.querySelectorAll('.add-to-cart');
+    addButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const card = button.closest('.product-card');
+            const name = card.getAttribute('data-name');
+            const price = card.getAttribute('data-price');
+            addToCart(name, price);
+        });
+    });
+    // Buka overlay bila ikon Cart diklik
+    document.getElementById('cart-icon').addEventListener('click', (e) => {
+        e.preventDefault();
+        openCart();
+    });
+    // Tutup overlay bila ✕ diklik
+    document.getElementById('close-cart').addEventListener('click', closeCart);
+    // Checkout – alihkan ke ToyyibPay
+    document.getElementById('checkout-btn').addEventListener('click', () => {
+        window.location.href = 'https://toyyibpay.com/123456'; // Gantikan dengan pautan ToyyibPay sebenar
+    });
 });

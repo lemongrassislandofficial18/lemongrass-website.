@@ -1,95 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lemongrass Island</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <link rel="icon" href="logo.png" type="image/png">
 </head>
 <body>
-  <header>
-    <img src="logo-white.png" alt="Lemongrass Logo" class="logo"/>
-    <nav>
-      <a href="#shop">Shop</a>
-      <a href="#about">About</a>
-      <a href="#preorder">Pre-Order</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <div class="hero">
-    <h2>Luxury Streetwear for Modern Souls</h2>
-    <p>Crafted with identity. Inspired by nature. Rooted in culture.</p>
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="Lemongrass Island Logo">
   </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#cart" class="cart-btn">Cart (<span id="cart-count">0</span>)</a>
+  </nav>
+</header>
 
-  <section class="section" id="shop">
-    <h2>Our Products</h2>
-    <div class="products">
-      <div class="product-card">
-        <div class="image-slider">
-          <img src="tshirt-front.png" class="slider-img active">
-          <img src="tshirt-back.png" class="slider-img">
-        </div>
-        <h3>Classic T-Shirt</h3>
-        <p>Premium heavyweight cotton. Bold design.</p>
-        <p><strong>Harga: RM89</strong></p>
-        <label>Saiz:
-          <select onchange="updateStock(this, 'tshirt')">
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
-          </select>
-        </label>
-        <p class="stock" id="stock-tshirt">Stok: -</p>
-        <a href="https://toyyibpay.com/link-bayaran-tshirt" class="btn" target="_blank">Pre-Order & Bayar</a>
-      </div>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Luxury Streetwear for Modern Souls</h1>
+    <p>Crafted with identity. Inspired by nature. Rooted in culture.</p>
+    <a href="#shop" class="btn">Shop Now</a>
+  </div>
+</section>
 
-      <div class="product-card">
-        <div class="image-slider">
-          <img src="hoodie-front.png" class="slider-img active">
-          <img src="hoodie-back.png" class="slider-img">
-        </div>
-        <h3>Signature Hoodie</h3>
-        <p>Luxury fleece. Embroidered logo. Ultimate comfort.</p>
-        <p><strong>Harga: RM179</strong></p>
-        <label>Saiz:
-          <select onchange="updateStock(this, 'hoodie')">
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
-          </select>
-        </label>
-        <p class="stock" id="stock-hoodie">Stok: -</p>
-        <a href="https://toyyibpay.com/link-bayaran-hoodie" class="btn" target="_blank">Pre-Order & Bayar</a>
+<section id="shop" class="section">
+  <h2>Our Products</h2>
+  <div class="products">
+    <div class="product-card" data-id="1">
+      <div class="product-slider">
+        <img src="tshirt1.png" alt="T-shirt Front">
+        <img src="tshirt2.png" alt="T-shirt Back" class="hidden">
       </div>
+      <h3>Classic T-Shirt</h3>
+      <p>Premium heavyweight cotton. Bold design.</p>
+      <p><strong>RM89</strong></p>
+      <p>Stock: <span class="stock">20</span></p>
+      <select class="size">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
+      <button class="add-to-cart">Add to Cart</button>
     </div>
-  </section>
 
-  <section class="section" id="about">
-    <h2>About Lemongrass Island</h2>
-    <p>Lemongrass Island is more than just a brand — it’s where luxury meets identity. Born from a passion to create high-end streetwear that tells a story of culture, nature, and modern relevance.</p>
-  </section>
+    <div class="product-card" data-id="2">
+      <div class="product-slider">
+        <img src="hoodie1.png" alt="Hoodie Front">
+        <img src="hoodie2.png" alt="Hoodie Back" class="hidden">
+      </div>
+      <h3>Signature Hoodie</h3>
+      <p>Luxury fleece. Embroidered logo. Ultimate comfort.</p>
+      <p><strong>RM179</strong></p>
+      <p>Stock: <span class="stock">10</span></p>
+      <select class="size">
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+</section>
 
-  <section class="section" id="preorder">
-    <h2>Pre-Order</h2>
-    <p>Secure your limited pieces now. Fill out the form and we’ll get in touch!</p>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeExampleFormURL/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-  </section>
+<section id="about" class="section">
+  <h2>About Us</h2>
+  <p>Lemongrass Island is more than just a brand — it's where luxury meets identity, culture, and modern relevance.</p>
+</section>
 
-  <section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <p>Instagram: <a href="https://instagram.com/lemongrassisland_official" target="_blank">@lemongrassisland_official</a></p>
-    <p>Email: lemongrassisland@gmail.com</p>
-    <p>WhatsApp: <a href="https://wa.me/60137007539" target="_blank">+60 13-700 7539</a></p>
-  </section>
+<section id="contact" class="section">
+  <h2>Contact</h2>
+  <p>Email: officiallemongrassisland@gmail.com</p>
+  <p>Instagram: <a href="https://instagram.com/lemongrassisland_official" target="_blank">@lemongrassisland_official</a></p>
+  <p>WhatsApp: <a href="https://wa.me/60137007539" target="_blank">+60 13-700 7539</a></p>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Lemongrass Island. All rights reserved.</p>
-  </footer>
+<footer>
+  <p>&copy; 2025 Lemongrass Island. All rights reserved.</p>
+</footer>
 
-  <script src="script.js"></script>
+<div class="cart-overlay hidden" id="cart">
+  <div class="cart-content">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <button id="checkout">Checkout</button>
+    <button id="close-cart">Close</button>
+  </div>
+</div>
+
 </body>
 </html>

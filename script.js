@@ -1,38 +1,18 @@
 const stockData = {
-  tshirt: { S: 5, M: 0, L: 2, XL: 0 },
-  hoodie: { S: 1, M: 0, L: 3, XL: 0 }
+  tshirt: { S: 5, M: 5, L: 5, XL: 5 },
+  hoodie: { S: 2, M: 2, L: 3, XL: 3 }
 };
 
 function updateStock(selectElement, type) {
   const size = selectElement.value;
   const stock = stockData[type][size];
   const stockDisplay = document.getElementById(`stock-${type}`);
-  const button = selectElement.closest(".product-card").querySelector(".btn");
-  const originalLink = button.dataset.href;
-
   if (stock > 0) {
     stockDisplay.textContent = `Stok: ${stock} helai`;
-    button.classList.remove("sold-out");
-    button.textContent = "Pre-Order & Bayar";
-    button.setAttribute("href", originalLink);
-    button.setAttribute("target", "_blank");
   } else {
-    stockDisplay.textContent = "Sold Out";
-    button.classList.add("sold-out");
-    button.textContent = "Sold Out";
-    button.removeAttribute("href");
-    button.removeAttribute("target");
+    stockDisplay.textContent = `Sold Out`;
   }
 }
-
-// Auto update stok bila laman dimuat
-document.addEventListener("DOMContentLoaded", () => {
-  const selects = document.querySelectorAll("select");
-  selects.forEach(select => {
-    const type = select.getAttribute("onchange").match(/'(.*?)'/)[1];
-    updateStock(select, type);
-  });
-});
 
 // Auto slide images
 setInterval(() => {

@@ -4,97 +4,138 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lemongrass Island</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Urbanist', sans-serif;
+      background-color: #f9f9f9;
+      color: #222;
+    }
+    header {
+      background-color: #000;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header img {
+      height: 50px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    .hero {
+      background: url('https://i.imgur.com/Wuy8kFI.jpg') no-repeat center center/cover;
+      padding: 100px 20px;
+      text-align: center;
+      color: white;
+    }
+    .section {
+      padding: 50px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .btn {
+      display: inline-block;
+      background: #000;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .size-stock {
+      margin: 10px 0;
+      font-size: 14px;
+      color: #444;
+    }
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="logo">Lemongrass Island</div>
+    <img src="https://i.imgur.com/8kzPIwY.png" alt="Lemongrass Island Logo">
     <nav>
       <a href="#shop">Shop</a>
       <a href="#about">About</a>
+      <a href="#preorder">Pre-Order</a>
       <a href="#contact">Contact</a>
-      <a href="#cart" class="cart-btn">Cart (<span id="cart-count">0</span>)</a>
     </nav>
   </header>
 
   <div class="hero">
-    <h1>Modern Streetwear Meets Island Luxury</h1>
-    <p>Crafted for culture. Inspired by nature. Made to stand out.</p>
+    <h1>Luxury Streetwear for Modern Souls</h1>
+    <p>Crafted with identity. Inspired by nature. Rooted in culture.</p>
   </div>
 
-  <section id="shop">
+  <section class="section" id="shop">
     <h2>Our Products</h2>
     <div class="products">
-      <div class="product">
-        <div class="slider">
-          <img src="https://i.imgur.com/l4lGJDi.png" class="slide active" />
-          <img src="https://i.imgur.com/kwHD7cU.png" class="slide" />
-          <button class="prev">‹</button>
-          <button class="next">›</button>
-        </div>
+      <div class="product-card">
+        <img src="https://i.imgur.com/l4lGJDi.png" alt="T-shirt Lemongrass">
         <h3>Classic T-Shirt</h3>
         <p>Premium heavyweight cotton. Bold design.</p>
-        <p class="price">RM89</p>
-        <label for="size-tshirt">Size:</label>
-        <select id="size-tshirt">
-          <option>S (5)</option>
-          <option>M (5)</option>
-          <option>L (5)</option>
-          <option>XL (5)</option>
-        </select>
+        <div class="size-stock">Size: S, M, L, XL | Stock: 20 pcs</div>
+        <p><strong>RM89</strong></p>
         <a href="https://toyyibpay.com/link-bayaran-tshirt" class="btn">Pre-Order Now</a>
       </div>
-
-      <div class="product">
-        <img src="https://i.imgur.com/kwHD7cU.png" />
+      <div class="product-card">
+        <img src="https://i.imgur.com/kwHD7cU.png" alt="Hoodie Lemongrass">
         <h3>Signature Hoodie</h3>
         <p>Luxury fleece. Embroidered logo. Ultimate comfort.</p>
-        <p class="price">RM179</p>
-        <label for="size-hoodie">Size:</label>
-        <select id="size-hoodie">
-          <option>S (2)</option>
-          <option>M (3)</option>
-          <option>L (3)</option>
-          <option>XL (2)</option>
-        </select>
+        <div class="size-stock">Size: M, L, XL | Stock: 10 pcs</div>
+        <p><strong>RM179</strong></p>
         <a href="https://toyyibpay.com/link-bayaran-hoodie" class="btn">Pre-Order Now</a>
       </div>
     </div>
   </section>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>Lemongrass Island is a luxury streetwear brand rooted in identity, inspired by tropical aesthetics and the voice of today’s youth. Designed to stand out.</p>
+  <section class="section" id="about">
+    <h2>About Lemongrass Island</h2>
+    <p>Lemongrass Island is more than just a brand — it’s where luxury meets identity. Born from a passion to create high-end streetwear that tells a story of culture, nature, and modern relevance.</p>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
+  <section class="section" id="preorder">
+    <h2>Pre-Order Form</h2>
+    <p>Secure your limited pieces now. Fill out the form and we’ll get in touch!</p>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeExampleFormURL/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
     <p>Instagram: <a href="https://instagram.com/lemongrassisland_official" target="_blank">@lemongrassisland_official</a></p>
     <p>Email: officiallemongrassisland@gmail.com</p>
-    <p>WhatsApp: <a href="https://wa.me/60137007539" target="_blank">+6013 700 7539</a></p>
+    <p>WhatsApp: <a href="https://wa.me/60137007539" target="_blank">+60 13-700 7539</a></p>
   </section>
 
   <footer>
     <p>&copy; 2025 Lemongrass Island. All rights reserved.</p>
   </footer>
-
-  <script>
-    const prev = document.querySelector('.prev');
-    const next = document.querySelector('.next');
-    const slides = document.querySelectorAll('.slide');
-    let current = 0;
-
-    next.addEventListener('click', () => {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-    });
-
-    prev.addEventListener('click', () => {
-      slides[current].classList.remove('active');
-      current = (current - 1 + slides.length) % slides.length;
-      slides[current].classList.add('active');
-    });
-  </script>
 </body>
 </html>

@@ -1,42 +1,95 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<div class="products">
-  <div class="product-card">
-    <div class="image-slider">
-      <img src="tshirt-front.png" class="slider-img active">
-      <img src="tshirt-back.png" class="slider-img">
-    </div>
-    <h3>Classic T-Shirt</h3>
-    <p>Premium heavyweight cotton. Bold design.</p>
-    <p><strong>Harga: RM89</strong></p>
-    <label>Saiz:
-      <select onchange="updateStock(this, 'tshirt')">
-        <option value="S">S</option>
-        <option value="M">M</option>
-        <option value="L">L</option>
-        <option value="XL">XL</option>
-      </select>
-    </label>
-    <p class="stock" id="stock-tshirt">Stok: -</p>
-    <a data-href="https://toyyibpay.com/link-bayaran-tshirt" class="btn" target="_blank">Pre-Order & Bayar</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lemongrass Island</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <img src="logo-white.png" alt="Lemongrass Logo" class="logo"/>
+    <nav>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#preorder">Pre-Order</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>Luxury Streetwear for Modern Souls</h2>
+    <p>Crafted with identity. Inspired by nature. Rooted in culture.</p>
   </div>
 
-  <div class="product-card">
-    <div class="image-slider">
-      <img src="hoodie-front.png" class="slider-img active">
-      <img src="hoodie-back.png" class="slider-img">
+  <section class="section" id="shop">
+    <h2>Our Products</h2>
+    <div class="products">
+      <div class="product-card">
+        <div class="image-slider">
+          <img src="tshirt-front.png" class="slider-img active">
+          <img src="tshirt-back.png" class="slider-img">
+        </div>
+        <h3>Classic T-Shirt</h3>
+        <p>Premium heavyweight cotton. Bold design.</p>
+        <p><strong>Harga: RM89</strong></p>
+        <label>Saiz:
+          <select onchange="updateStock(this, 'tshirt')">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+        </label>
+        <p class="stock" id="stock-tshirt">Stok: -</p>
+        <a href="https://toyyibpay.com/link-bayaran-tshirt" class="btn" target="_blank">Pre-Order & Bayar</a>
+      </div>
+
+      <div class="product-card">
+        <div class="image-slider">
+          <img src="hoodie-front.png" class="slider-img active">
+          <img src="hoodie-back.png" class="slider-img">
+        </div>
+        <h3>Signature Hoodie</h3>
+        <p>Luxury fleece. Embroidered logo. Ultimate comfort.</p>
+        <p><strong>Harga: RM179</strong></p>
+        <label>Saiz:
+          <select onchange="updateStock(this, 'hoodie')">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+        </label>
+        <p class="stock" id="stock-hoodie">Stok: -</p>
+        <a href="https://toyyibpay.com/link-bayaran-hoodie" class="btn" target="_blank">Pre-Order & Bayar</a>
+      </div>
     </div>
-    <h3>Signature Hoodie</h3>
-    <p>Luxury fleece. Embroidered logo. Ultimate comfort.</p>
-    <p><strong>Harga: RM179</strong></p>
-    <label>Saiz:
-      <select onchange="updateStock(this, 'hoodie')">
-        <option value="S">S</option>
-        <option value="M">M</option>
-        <option value="L">L</option>
-        <option value="XL">XL</option>
-      </select>
-    </label>
-    <p class="stock" id="stock-hoodie">Stok: -</p>
-    <a data-href="https://toyyibpay.com/link-bayaran-hoodie" class="btn" target="_blank">Pre-Order & Bayar</a>
-  </div>
-</div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Lemongrass Island</h2>
+    <p>Lemongrass Island is more than just a brand — it’s where luxury meets identity. Born from a passion to create high-end streetwear that tells a story of culture, nature, and modern relevance.</p>
+  </section>
+
+  <section class="section" id="preorder">
+    <h2>Pre-Order</h2>
+    <p>Secure your limited pieces now. Fill out the form and we’ll get in touch!</p>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeExampleFormURL/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Instagram: <a href="https://instagram.com/lemongrassisland_official" target="_blank">@lemongrassisland_official</a></p>
+    <p>Email: lemongrassisland@gmail.com</p>
+    <p>WhatsApp: <a href="https://wa.me/60137007539" target="_blank">+60 13-700 7539</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Lemongrass Island. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

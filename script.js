@@ -11,8 +11,8 @@ const products = [
       XL: 3,
     },
     images: [
-      "images/baju1-1.jpg",
-      "images/baju1-2.jpg"
+      "images/https://imgur.com/S1KzW0B.jpg",
+      "images/https://imgur.com/NBg3gai.jpg"
     ],
     paymentLink: "https://your-payment-link-tshirt.com"
   },

@@ -12,7 +12,7 @@ const products = [
     },
     images: [
       "https://imgur.com/S1KzW0B.jpg",
-      "/https://imgur.com/NBg3gai.jpg"
+      "https://imgur.com/NBg3gai.jpg"
     ],
     paymentLink: "https://your-payment-link-tshirt.com"
   },

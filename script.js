@@ -1,66 +1,124 @@
-// Open/Close Cart
-const cartIcon = document.querySelector("#cart-icon");
-const cart = document.querySelector(".cart");
-const closeCart = document.querySelector("#close-cart");
+// Simpan produk dalam array
+const products = [
+  {
+    id: 1,
+    name: "Classic T-Shirt",
+    price: 89,
+    stock: {
+      S: 5,
+      M: 7,
+      L: 5,
+      XL: 3,
+    },
+    images: [
+      "images/baju1-1.jpg",
+      "images/baju1-2.jpg"
+    ],
+    paymentLink: "https://your-payment-link-tshirt.com"
+  },
+  {
+    id: 2,
+    name: "Signature Hoodie",
+    price: 179,
+    stock: {
+      S: 2,
+      M: 3,
+      L: 3,
+      XL: 2,
+    },
+    images: [
+      "images/baju2-1.jpg",
+      "images/baju2-2.jpg"
+    ],
+    paymentLink: "https://your-payment-link-hoodie.com"
+  }
+];
 
-cartIcon.addEventListener('click', () => {
-    cart.classList.toggle("open");
-});
+// Troli kosong mula-mula
+let cart = [];
 
-closeCart.addEventListener('click', () => {
-    cart.classList.remove("open");
-});
+// Update paparan produk
+function renderProducts() {
+  const productContainer = document.getElementById("product-list");
+  productContainer.innerHTML = "";
 
-// Cart Functionality
-let cartItems = [];
+  products.forEach((product, index) => {
+    const sizes = Object.keys(product.stock).map(size => {
+      const quantity = product.stock[size];
+      return `<option value="${size}" ${quantity === 0 ? "disabled" : ""}>
+        ${size} (${quantity} left)
+      </option>`;
+    }).join("");
 
-function addToCart(productName, size, price) {
-    const existingItem = cartItems.find(item => item.name === productName && item.size === size);
-    if (existingItem) {
-        existingItem.quantity += 1;
-    } else {
-        cartItems.push({ name: productName, size: size, price: price, quantity: 1 });
-    }
-    renderCart();
+    const productHTML = `
+      <div class="product-card">
+        <div class="product-carousel" id="carousel-${index}">
+          ${product.images.map((img, idx) => `
+            <img src="${img}" class="carousel-img ${idx === 0 ? 'active' : ''}" alt="${product.name}">
+          `).join("")}
+        </div>
+        <h3>${product.name}</h3>
+        <p><strong>RM${product.price}</strong></p>
+        <select id="size-select-${product.id}">
+          <option value="">Pilih Saiz</option>
+          ${sizes}
+        </select>
+        <button onclick="addToCart(${product.id})" class="btn">Pre-Order</button>
+      </div>
+    `;
+    productContainer.innerHTML += productHTML;
+
+    // Activate carousel
+    setupCarousel(index);
+  });
 }
 
-function renderCart() {
-    const cartItemsContainer = document.getElementById('cart-items');
-    cartItemsContainer.innerHTML = '';
-    let total = 0;
+// Fungsi tambah ke troli
+function addToCart(productId) {
+  const product = products.find(p => p.id === productId);
+  const sizeSelect = document.getElementById(`size-select-${productId}`);
+  const selectedSize = sizeSelect.value;
 
-    cartItems.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.name} (${item.size}) x${item.quantity}`;
-        cartItemsContainer.appendChild(li);
-        total += item.price * item.quantity;
-    });
+  if (!selectedSize) {
+    alert("Sila pilih saiz dulu!");
+    return;
+  }
 
-    document.getElementById('total-price').textContent = `Total: RM ${total.toFixed(2)}`;
+  if (product.stock[selectedSize] <= 0) {
+    alert("Maaf, stok saiz ini telah habis.");
+    return;
+  }
 
-    const checkoutBtn = document.querySelector('.checkout-btn');
-    checkoutBtn.href = `https://toyyibpay.com/dummy-link`; // Ganti dengan link sebenar nanti
+  // Kurangkan stok
+  product.stock[selectedSize]--;
+
+  // Update troli
+  cart.push({
+    ...product,
+    selectedSize
+  });
+
+  alert(`${product.name} (Saiz ${selectedSize}) telah ditambah ke Pre-Order!`);
+
+  // Redirect ke pembayaran
+  window.open(product.paymentLink, "_blank");
+
+  // Refresh produk
+  renderProducts();
 }
 
-// Attach event listeners to Add to Cart buttons
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', () => {
-        const productCard = button.closest('.product-card');
-        const productName = productCard.querySelector('h3').textContent;
-        const size = productCard.querySelector('select').value;
-        const price = parseFloat(productCard.querySelector('.price').textContent.replace('RM ', ''));
-        
-        if (size === "") {
-            alert('Please select a size.');
-            return;
-        }
+// Fungsi gambar carousel auto geser
+function setupCarousel(index) {
+  const carousel = document.getElementById(`carousel-${index}`);
+  const images = carousel.querySelectorAll(".carousel-img");
+  let current = 0;
 
-        addToCart(productName, size, price);
-    });
-});
-
-// Update stock (Dummy example, can connect to database later)
-function updateStock(productId, size) {
-    console.log(`Stock updated for product ${productId} size ${size}`);
-    // Later you can fetch and update real database stock
+  carousel.addEventListener("click", () => {
+    images[current].classList.remove("active");
+    current = (current + 1) % images.length;
+    images[current].classList.add("active");
+  });
 }
+
+// Mula render produk
+renderProducts();

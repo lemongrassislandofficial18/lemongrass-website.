@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,82 +9,29 @@
 <body>
 
   <header>
-    <div class="logo">Lemongrass Island</div>
+    <img src="images/logo.png" alt="Lemongrass Island Logo" class="logo">
     <nav>
-      <a href="#home">Home</a>
-      <a href="#shop">Shop</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="#cart" class="cart-btn">Cart (<span id="cart-count">0</span>)</a>
+      <ul>
+        <li><a href="#product-list">Produk</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>Luxury Streetwear for Modern Souls</h1>
-      <p>Crafted with identity. Inspired by nature. Rooted in culture.</p>
-    </div>
-  </section>
+  <main>
+    <section class="hero">
+      <h1>Selamat Datang ke Lemongrass Island</h1>
+      <p>Streetwear Bertemakan Pulau. Eksklusif & Premium.</p>
+    </section>
 
-  <section class="products" id="shop">
-    <h2>Shop Our Collection</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="https://i.imgur.com/l4lGJDi.png" alt="T-Shirt Lemongrass">
-        <h3>Classic T-Shirt</h3>
-        <p>Premium heavyweight cotton. Bold identity.</p>
-        <p><strong>RM89</strong></p>
-        <label for="tshirt-size">Size:</label>
-        <select id="tshirt-size">
-          <option value="S">S (20 available)</option>
-          <option value="M">M (20 available)</option>
-          <option value="L">L (20 available)</option>
-          <option value="XL">XL (20 available)</option>
-        </select>
-        <button class="add-to-cart" data-product="Classic T-Shirt" data-price="89">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <img src="https://i.imgur.com/kwHD7cU.png" alt="Hoodie Lemongrass">
-        <h3>Signature Hoodie</h3>
-        <p>Luxury fleece. Embroidered logo. Ultimate comfort.</p>
-        <p><strong>RM179</strong></p>
-        <label for="hoodie-size">Size:</label>
-        <select id="hoodie-size">
-          <option value="S">S (10 available)</option>
-          <option value="M">M (10 available)</option>
-          <option value="L">L (10 available)</option>
-          <option value="XL">XL (10 available)</option>
-        </select>
-        <button class="add-to-cart" data-product="Signature Hoodie" data-price="179">Add to Cart</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="about" id="about">
-    <h2>About Us</h2>
-    <p>Lemongrass Island is where luxury meets streetwear. Every design carries a story rooted in culture and identity.</p>
-  </section>
-
-  <section class="contact" id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: lemongrassisland@gmail.com</p>
-    <p>Instagram: <a href="https://instagram.com/lemongrassisland_official" target="_blank">@lemongrassisland_official</a></p>
-    <p>WhatsApp: <a href="https://wa.me/60137007539" target="_blank">+60 13-700 7539</a></p>
-  </section>
-
-  <div class="cart" id="cart">
-    <h2>Your Cart</h2>
-    <ul id="cart-items"></ul>
-    <p>Total: RM <span id="cart-total">0</span></p>
-    <a id="checkout-btn" href="https://dummy-toyyibpay-link.com" class="checkout-btn" target="_blank">Proceed to Payment</a>
-  </div>
+    <section id="product-list" class="product-grid">
+      <!-- Produk akan masuk melalui script.js -->
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Lemongrass Island. All rights reserved.</p>
+    <p>&copy; 2025 Lemongrass Island. All Rights Reserved.</p>
   </footer>
 
   <script src="script.js"></script>
-
 </body>
 </html>

@@ -11,8 +11,8 @@ const products = [
       XL: 3,
     },
     images: [
-      "images/https://imgur.com/S1KzW0B.jpg",
-      "images/https://imgur.com/NBg3gai.jpg"
+      "https://imgur.com/S1KzW0B.jpg",
+      "/https://imgur.com/NBg3gai.jpg"
     ],
     paymentLink: "https://your-payment-link-tshirt.com"
   },
@@ -27,8 +27,8 @@ const products = [
       XL: 2,
     },
     images: [
-      "images/baju2-1.jpg",
-      "images/baju2-2.jpg"
+      "https://imgur.com/73LuUzy.jpg",
+      "https://imgur.com/2UjaGBY.jpg"
     ],
     paymentLink: "https://your-payment-link-hoodie.com"
   }
